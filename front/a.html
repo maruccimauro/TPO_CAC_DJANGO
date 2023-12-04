@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Texto en la Posición del Click</title>
+        <style>
+            .textClick {
+                position: absolute;
+                font-size: 16px;
+                background-color: #f0f0f0;
+                padding: 5px;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                animation-name: animation-textClick;
+                animation-duration: 2s;
+                animation-iteration-count: 1;
+                animation-timing-function: cubic-bezier(0.63, 0.19, 0.52, 0.79);
+            }
+
+            @keyframes animation-textClick {
+                0% {
+                    opacity: 1;
+                    background-color: red;
+                }
+                100% {
+                    opacity: 0;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                document.addEventListener("click", function (event) {
+                    showTextClickClick(event.clientX, event.clientY);
+                });
+            });
+
+            function showTextClickClick(x, y) {
+                var textClick = document.createElement("div");
+                textClick.classList.add("textClick");
+                document.body.insertAdjacentElement("beforeend", textClick);
+                textClick.innerText = "Hola, Mundo!";
+                textClick.style.left = x + "px";
+                textClick.style.top = y + window.scrollY + "px"; // Ajuste para el desplazamiento vertical
+
+                setTimeout(function () {
+                    textClick.remove();
+                }, 2000);
+            }
+        </script>
+    </body>
+</html>

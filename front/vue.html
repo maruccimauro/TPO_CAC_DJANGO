@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="app/panel/scripts.js"></script>
+        <title>VueJs Introduction</title>
+    </head>
+
+    <body>
+        <input type="button" id="a" value="sectionOfferCard" />
+        <input type="button" id="b" value="branchOfficesList" />
+        <hr />
+        <form
+            id="apiForm"
+            method="POST"
+            name="apiForm"
+            action=""
+            enctype="multipart/form-data"
+        ></form>
+        <hr />
+        <div id="sectionApi"></div>
+
+        <script>
+            createForm(enumApi.sectionOfferCard);
+
+            document.getElementById("a").addEventListener("click", () => {
+                createForm(enumApi.sectionOfferCard);
+                buildSectionApi(enumApi.sectionOfferCard);
+            });
+            document.getElementById("b").addEventListener("click", () => {
+                createForm(enumApi.branchOffices);
+                buildSectionApi(enumApi.branchOffices);
+            });
+        </script>
+    </body>
+</html>
